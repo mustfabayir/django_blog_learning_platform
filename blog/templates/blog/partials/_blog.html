@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-3">
+            {% comment %} <img src="{% static 'images/'|add:blog.image %}" alt="" class="img-fluid">  Image Upload konusundan onceydi. (Tekrar gozden gecirebilirsin.){% endcomment %}
+            <img src="{{ blog.image.url }}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'blog_details' blog.slug %}" class="text-decoration-none text-dark">
+                        {{ blog.title }}
+                    </a>
+                    
+                </h5>
+                <p class="card-text">{{ blog.description|striptags|slice:"0:50" }}</p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
